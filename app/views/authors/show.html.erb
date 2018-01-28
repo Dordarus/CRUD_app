@@ -4,12 +4,17 @@
 <h2>Books</h2>
 <% if @books_any %>
     <% @books.each do |b| %>
-    <h3>Title</h3>
+    <strong>Title</strong>
     <p><i><%= b.title %></i></p>
-    <h3>Year</h3>
+    <strong>Year</strong>
     <p><i><%= b.year %></i></p>
-    <%# add show book%>
+    <strong>Genre</strong>
+    <p><i><%= b.genre %></i></p>
+    <strong>Plot</strong>
+    <p><i><%= b.plot %></i></p>
+    <%# add editing book%>
     <%# link_to 'Show', book_path(b) %>
+    <p>---------------------------------</p>
     <% end %>
 <% else %>
  <p><i>No books, yet</i></p>

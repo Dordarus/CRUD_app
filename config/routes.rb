@@ -9,5 +9,4 @@ Rails.application.routes.draw do
   #book routes
   get '/book/new'=> 'books#new', as: :new_book
   get '/books/:id'=> 'books#show', as: :book
-
 end
