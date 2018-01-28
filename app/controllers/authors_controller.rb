@@ -5,6 +5,21 @@ class AuthorsController < ApplicationController
 
     def show
         @author = Author.find(params[:id])
+        @books = @author.books.all
+        @books_any = @books.any?
+    end
+
+    def edit
+        @author = Author.find(params[:id])
+    end
+
+    def update
+        @author = Author.find(params[:id])
+        if @author.update(author_params)
+            redirect_to @author
+        else
+            render 'edit'
+        end
     end
 
     def new
@@ -19,11 +34,9 @@ class AuthorsController < ApplicationController
             render 'new'
         end
     end   
-
+  
     private 
     def author_params
         params.require(:author).permit(:first_name, :last_name, :bio)
     end
-   
-    #TODO: Add editig and deletion
 end

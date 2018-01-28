@@ -1,0 +1,16 @@
+<h2><%= @author.first_name %> <%= @author.last_name %></h2>
+<p><i><%= @author.bio %></i></p>
+<%= link_to 'Edit', edit_author_path(@author) %>
+<h2>Books</h2>
+<% if @books_any %>
+    <% @books.each do |b| %>
+    <h3>Title</h3>
+    <p><i><%= b.title %></i></p>
+    <h3>Year</h3>
+    <p><i><%= b.year %></i></p>
+    <%# add show book%>
+    <%# link_to 'Show', book_path(b) %>
+    <% end %>
+<% else %>
+ <p><i>No books, yet</i></p>
+<% end %>
