@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   #author routes
+  root 'authors#index'
   get '/authors'=>'authors#index'
   get '/authors/new'=> 'authors#new', as: :new_author
   get '/authors/:id' => 'authors#show', as: :author
