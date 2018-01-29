@@ -14,6 +14,7 @@
     <strong>Plot</strong>
     <p><i><%= b.plot %></i></p>
     <%= link_to 'Show', book_path(b) %>
+    <%= link_to "Delete", book_path(b), method: :delete, data: { confirm: "You sure?" } %>
     <p>---------------------------------</p>
     <% end %>
 <% else %>
