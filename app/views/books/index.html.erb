@@ -1,0 +1,14 @@
+ <% @books.each do |b| %>
+    <strong>Title</strong>
+    <p><i><%= b.title %></i></p>
+    <strong>Author</strong>
+    <p><i><%= b.author.first_name %> <%= b.author.last_name %></i></p>
+    <strong>Genre</strong>
+    <p><i><%= b.genre %></i></p>
+    <strong>Year</strong>
+    <p><i><%= b.year %></i></p>
+    <strong>Plot</strong>
+    <p><i><%= b.plot %></i></p>
+    <%= link_to 'Show', book_path(b) %>
+    <p>---------------------------------</p>
+    <% end %>

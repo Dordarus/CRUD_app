@@ -1,24 +1,24 @@
 class AuthorsController < ApplicationController
+
+    before_action :find_author, only: [:edit, :update, :show]
+
     def index
         @authors = Author.all
     end
 
     def show
-        @author = Author.find(params[:id])
         @books = @author.books.all
         @books_any = @books.any?
     end
 
     def edit
-        @author = Author.find(params[:id])
     end
 
-    def update
-        @author = Author.find(params[:id])
+    def update      
         if @author.update(author_params)
             redirect_to @author
         else
-            render 'edit'
+            render :edit
         end
     end
 
@@ -31,12 +31,16 @@ class AuthorsController < ApplicationController
         if @author.save
             redirect_to '/authors'
         else
-            render 'new'
+            render :new
         end
     end   
   
     private 
     def author_params
         params.require(:author).permit(:first_name, :last_name, :bio)
+    end
+
+    def find_author
+        @author = Author.find(params[:id])
     end
 end

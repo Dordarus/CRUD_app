@@ -2,6 +2,7 @@
 <p><i><%= @author.bio %></i></p>
 <%= link_to 'Edit', edit_author_path(@author) %>
 <h2>Books</h2>
+<%= link_to 'Add new book', new_book_path(@author.id) %></br></br>
 <% if @books_any %>
     <% @books.each do |b| %>
     <strong>Title</strong>
@@ -12,8 +13,7 @@
     <p><i><%= b.genre %></i></p>
     <strong>Plot</strong>
     <p><i><%= b.plot %></i></p>
-    <%# add editing book%>
-    <%# link_to 'Show', book_path(b) %>
+    <%= link_to 'Show', book_path(b) %>
     <p>---------------------------------</p>
     <% end %>
 <% else %>
