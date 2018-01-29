@@ -1,5 +1,12 @@
-<h2><%= @book.title %></h2> <h3><i><%= @book.genre %></i></h3>
-<h4><%= @book.year %></h4>
-<p><i><%= @book.plot %></i></p>
+<div class="container">
+    <div class="page-header">
+        <h1><%= @book.title %></h1>      
+    </div>
+    <h3><i><%= @book.genre %></i></h3>
+    <h4><%= @book.year %></h4>
+    <p><i><%= @book.plot %></i></p>  
+    <hr>
+    <%= link_to 'Edit', edit_book_path(@book) %>   
+</div>
 
-<%= link_to 'Edit', edit_book_path(@book) %>
+

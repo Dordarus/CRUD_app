@@ -1,22 +1,53 @@
-<h2><%= @author.first_name %> <%= @author.last_name %></h2>
-<p><i><%= @author.bio %></i></p>
-<%= link_to 'Edit', edit_author_path(@author) %>
-<h2>Books</h2>
-<%= link_to 'Add new book', new_book_path(@author.id) %></br></br>
-<% if @books_any %>
-    <% @books.each do |b| %>
-    <strong>Title</strong>
-    <p><i><%= b.title %></i></p>
-    <strong>Year</strong>
-    <p><i><%= b.year %></i></p>
-    <strong>Genre</strong>
-    <p><i><%= b.genre %></i></p>
-    <strong>Plot</strong>
-    <p><i><%= b.plot %></i></p>
-    <%= link_to 'Show', book_path(b) %>
-    <%= link_to "Delete", book_path(b), method: :delete, data: { confirm: "You sure?" } %>
-    <p>---------------------------------</p>
+<div class="jumbotron">
+    <div class="container">
+        <h2><%= @author.first_name %> <%= @author.last_name %></h2>    
+        <p><i><%= @author.bio %></i></p>
+        <%= link_to 'Add new book', new_book_path(@author.id)%>
+    </div>
+</div>
+<div class="container">
+    <h2>Books</h2>
+    <% if @books_any %>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>
+                        <strong>Title</strong>
+                    </th>
+                    <th>
+                        <strong>Year</strong>
+                    </th>
+                    <th>
+                        <strong>Genre</strong>
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <% @books.each do |b| %> 
+                    <tr>
+                        <td>
+                            <i><%= b.title %></i>
+                        </td>
+                        <td>
+                            <i><%= b.year %></i>
+                        </td>
+                        <td>
+                            <i><%= b.genre %></i>
+                        </td>                  
+                        <td>
+                            <%= link_to 'Show', book_path(b) %>
+                        </td>
+                        <td>
+                            <%= link_to "Delete", book_path(b), method: :delete, data: { confirm: "You sure?" } %>
+                        </td>
+                    </tr>
+                <% end %>
+            </tbody>
+        </table>
+    <% else %>
+        <p><i>No books, yet</i></p>
     <% end %>
-<% else %>
- <p><i>No books, yet</i></p>
-<% end %>
+</div>
+
+
+

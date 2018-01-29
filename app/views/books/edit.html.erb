@@ -1,13 +1,27 @@
- <%= form_for(@book) do |f| %>  
-    <%= f.label :Title %><br> 
-    <%= f.text_field :title %> </br>
-    <%= f.label :Genre %><br> 
-    <%= f.text_field :genre %> </br>
-    <%= f.label :Year %><br> 
-    <%= f.text_field :year %> </br>
-    <%= f.label :Plot %><br> 
-    <%= f.text_area :plot %> </br>
-    <%= f.hidden_field :author_id, value: @book.author.id %>
-    <%= f.submit "Save" %> 
-    <%= link_to 'Return', book_path(@book) %>
-<% end %>
+ <div class="jumbotron">
+    <div class="container">
+        <h2>Edit info about book</h2>    
+    </div>
+</div>
+<div class="container">
+    <%= form_for(@book) do |f| %>  
+        <div class="form-group"> 
+            <%= f.label :Title, class: "control-label"  %>
+            <%= f.text_field :title, class: "form-control"  %>
+        </div>
+        <div class="form-group"> 
+            <%= f.label :Genre , class: "control-label" %> 
+            <%= f.text_field :genre, class: "form-control"  %>
+        </div>
+        <div class="form-group"> 
+            <%= f.label :Year , class: "control-label" %>
+            <%= f.text_field :year, class: "form-control"  %>
+        </div>
+        <div class="form-group"> 
+            <%= f.label :Plot, class: "control-label"  %>
+            <%= f.text_area :plot, class: "form-control"  %>
+        </div>
+        <%= f.hidden_field :author_id, value: @book.author.id %>
+        <%= f.submit "Save", class: "btn btn-default"  %> 
+    <% end %>
+</div>

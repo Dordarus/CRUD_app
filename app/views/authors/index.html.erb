@@ -1,7 +1,31 @@
-<% @authors.each do |a| %>
-<h2><%= a.first_name %> <%= a.last_name %></h2>
-<p><i><%= a.bio %></i></p>
-<%= link_to 'Show info', author_path(a) %>
-<% end %>
-</br>
-<%= link_to 'Create New', new_author_path %>
+ <div class="jumbotron">
+    <div class="container">
+        <h2>Authors</h2>
+        <%= link_to 'Show All Books', '/books' %>
+    </div>
+</div>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Name</th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @authors.each do |a| %>
+            <tr>
+                <td>
+                    <%= a.first_name %> <%= a.last_name %>
+                </td>
+                <td>
+                    <%= link_to 'Show info', author_path(a) %>
+                </td>
+                <td>
+                    <%= link_to 'Edit', edit_author_path(a) %>
+                </td>
+            </tr>    
+            <% end %>
+        </tbody>
+    </table>
+    <%= link_to 'Create New Author', new_author_path %>
+</div>

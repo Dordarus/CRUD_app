@@ -1,14 +1,47 @@
- <% @books.each do |b| %>
-    <strong>Title</strong>
-    <p><i><%= b.title %></i></p>
-    <strong>Author</strong>
-    <p><i><%= b.author.first_name %> <%= b.author.last_name %></i></p>
-    <strong>Genre</strong>
-    <p><i><%= b.genre %></i></p>
-    <strong>Year</strong>
-    <p><i><%= b.year %></i></p>
-    <strong>Plot</strong>
-    <p><i><%= b.plot %></i></p>
-    <%= link_to 'Show', book_path(b) %>
-    <p>---------------------------------</p>
-    <% end %>
+ <div class="jumbotron">
+    <div class="container">
+        <h2>Books</h2>    
+    </div>
+</div>
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>
+                    <strong>Title</strong>
+                </th>
+                <th>
+                    <strong>Author</strong>
+                </th>
+                <th>
+                    <strong>Year</strong>
+                </th>
+                <th>
+                    <strong>Genre</strong>
+                </th>
+            </tr>
+        </thead>
+        <tbody>
+            <% @books.each do |b| %> 
+                <tr>
+                    <td>
+                        <i><%= b.title %></i>
+                    </td>
+                    <td>
+                        <i><%= b.author.first_name %> <%= b.author.last_name %></i>
+                    </td>
+                    <td>
+                        <i><%= b.year %></i>
+                    </td>
+                    <td>
+                        <i><%= b.genre %></i>
+                    </td>                  
+                    <td>
+                        <%= link_to 'Show', book_path(b) %>
+                    </td>
+                </tr>
+            <% end %>
+        </tbody>
+    </tabel>
+    </div>
+</div>
