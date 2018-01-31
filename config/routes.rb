@@ -1,4 +1,9 @@
 Rails.application.routes.draw do
+  #start page routes
+  get 'pages/home'
+  get 'pages/sign_in'
+  get 'pages/login'
+
   root 'authors#index'
   #authors routes
   get '/authors'=>'authors#index', as: :authors_index
