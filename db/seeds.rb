@@ -1,5 +1,5 @@
-a1 = Author.create(first_name: "George", last_name: "Orwell", bio: "An English novelist, essayist, journalist, and critic.")
-a2 = Author.create(first_name: "Aldous", last_name: "Huxley", bio: "An English writer, novelist, philosopher.")
+a2 = Author.create(first_name: "George", last_name: "Orwell", bio: "An English novelist, essayist, journalist, and critic.")
+a1 = Author.create(first_name: "Aldous", last_name: "Huxley", bio: "An English writer, novelist, philosopher.")
 a3 = Author.create(first_name: "Oliver", last_name: "Sacks", bio: "A British neurologist, naturalist, historian of science, and author.")
 huxley = [
   [ "Brave New World", "Dystopian novel", 1931, "The novel opens in the World State city of London in AF 632 (AD 2540 in the Gregorian calendar), where citizens are engineered through artificial wombs and childhood indoctrination programs into predetermined classes (or castes) based on intelligence and labour."],
