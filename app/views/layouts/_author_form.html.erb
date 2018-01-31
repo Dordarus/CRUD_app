@@ -1,0 +1,17 @@
+<div class="container">
+    <%= form_for(@author) do |f| %> 
+        <div class="form-group"> 
+            <%= f.label :First_name, class: "control-label"  %>
+            <%= f.text_field :first_name,  class: "form-control" %>
+        </div>
+        <div class="form-group"> 
+            <%= f.label :Last_name, class: "control-label"  %>
+            <%= f.text_field :last_name,  class: "form-control" %>
+        </div>    
+        <div class="form-group"> 
+            <%= f.label :BIO, class: "control-label" %>
+            <%= f.text_area :bio,  class: "form-control" %>
+        </div>    
+            <%= f.submit "Save", class: "btn btn-default" %> 
+    <% end %>
+</div>

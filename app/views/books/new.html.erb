@@ -3,25 +3,5 @@
         <h2>Create new book</h2>    
     </div>
 </div>
-<div class="container">
-    <%= form_for(@book) do |f| %>  
-        <div class="form-group"> 
-            <%= f.label :Title, class: "control-label"  %>
-            <%= f.text_field :title, class: "form-control"  %>
-        </div>
-        <div class="form-group"> 
-            <%= f.label :Genre , class: "control-label" %> 
-            <%= f.text_field :genre, class: "form-control"  %>
-        </div>
-        <div class="form-group"> 
-            <%= f.label :Year , class: "control-label" %>
-            <%= f.text_field :year, class: "form-control"  %>
-        </div>
-        <div class="form-group"> 
-            <%= f.label :Plot, class: "control-label"  %>
-            <%= f.text_area :plot, class: "form-control"  %>
-        </div>
-        <%= f.hidden_field :author_id, value: @author.id %>
-        <%= f.submit "Save", class: "btn btn-default"  %> 
-    <% end %>
-</div>
+
+<%= render 'layouts/book_form', author_id: @author.id %>
