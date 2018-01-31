@@ -3,17 +3,10 @@
   <head>
     <meta charset="utf-8">
     <title>CRUDApp</title>
-    <%= csrf_meta_tags %>
-    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <%= render 'layouts/rails_default' %>
+  </head>
   <body>
     <%= yield %>
-      <nav class="navbar navbar-inverse navbar-fixed-bottom">
-        <div class="container-fluid">
-          <ul class="nav navbar-nav navbar-right">
-            <li><%= link_to 'Return', '/authors' %></li>
-          </ul>
-        </div>
-      </nav>
+      <%= render 'layouts/bottom_navbar' %>
   </body>
 </html>
