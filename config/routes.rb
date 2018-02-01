@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
   #start page routes
-  get 'pages/home'
-  get 'pages/sign_in'
-  get 'pages/login'
+  get '/sign_in' => 'pages#sign_in', as: :sign_in
+  get '/login' => 'pages#login', as: :login
 
-  root 'authors#index'
+  root 'pages#home'
   #authors routes
   get '/authors'=>'authors#index', as: :authors_index
   get '/authors/new'=> 'authors#new', as: :new_author
