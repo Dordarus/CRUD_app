@@ -2,8 +2,8 @@ Rails.application.routes.draw do
   get 'users/new'
 
   #start page routes
+  get '/sign_up' => 'pages#sign_up', as: :sign_up
   get '/sign_in' => 'pages#sign_in', as: :sign_in
-  get '/login' => 'pages#login', as: :login
 
   root 'pages#home'
   #authors routes
