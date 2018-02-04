@@ -1,19 +1,33 @@
 <div class="container text-center">
     <div class="jumbotron">
         <h1>Welcome to our Library</h1>
-        <p>Please sign in to see the full version of the site</p>       
+        <% if !logged_in? %>
+            <p>Please sign in to see the full version of the site</p>    
+        <% end %>          
     </div>
+
     <div class="row">
         <div class="col-sm-6 container">
             <div class=" jumbotron">
-            <p class="text-muted"> Do you already have an account? </p> 
-                <%= link_to 'Sign in', sign_in_path, class: 'btn btn-primary btn-lg' %>
+                <% if logged_in? %>   
+                    <p class="text-muted"> <%= current_user.name %>, we have new books!</p> 
+                    <%= link_to 'Books', books_index_path, class: 'btn btn-primary btn-lg' %>
+                <% else %> 
+                    <p class="text-muted"> Do you already have an account? </p> 
+                    <%= link_to 'Sign in', sign_in_path, class: 'btn btn-primary btn-lg' %>
+                <% end %>
             </div>
         </div>
+
         <div class="col-sm-6 container">
             <div class="jumbotron">
-                <p class="text-muted"> Don't have an account? </p> 
-                <%= link_to 'Sign up', sign_up_path, class: 'btn btn-primary btn-lg' %>    
+            <% if logged_in? %>   
+                    <p class="text-muted"> Our authors </p> 
+                    <%= link_to 'Authors', authors_index_path, class: 'btn btn-primary btn-lg' %>  
+                <% else %> 
+                    <p class="text-muted"> Don't have an account? </p> 
+                    <%= link_to 'Sign up', sign_up_path, class: 'btn btn-primary btn-lg' %>  
+                <% end %>
             </div>
         </div>     
     </div>

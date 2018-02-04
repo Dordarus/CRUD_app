@@ -1,6 +1,6 @@
 class AuthorsController < ApplicationController
-
     before_action :find_author, only: [:edit, :update, :show]
+    before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
 
     def index
         @authors = Author.all
@@ -42,5 +42,13 @@ class AuthorsController < ApplicationController
 
     def find_author
         @author = Author.find(params[:id])
+    end
+
+    # Before filters
+
+    def signed_in_user
+        unless logged_in?
+        redirect_to sign_in_url
+      end
     end
 end

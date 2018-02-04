@@ -10,7 +10,6 @@ Rails.application.routes.draw do
   post   '/sign_in' => 'sessions#create'
   delete '/sign_out'=> 'sessions#destroy', as: :sign_out
 
-
   #authors routes
   get '/authors'=>'authors#index', as: :authors_index
   get '/authors/new'=> 'authors#new', as: :new_author
@@ -26,6 +25,4 @@ Rails.application.routes.draw do
   get '/books/:id/edit'=>'books#edit', as: :edit_book
   patch '/books/:id' => 'books#update'
   delete '/books/:id' => 'books#destroy'
-
-
 end

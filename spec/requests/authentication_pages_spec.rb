@@ -47,4 +47,66 @@ RSpec.describe "Authentication", type: :request do
       end
     end
   end
+
+  describe "authorization" do
+
+    describe "for non-signed-in users" do
+      before do
+        @author = Author.create(first_name: "George", last_name: "Orwell", bio: "An English novelist, essayist, journalist, and critic.")
+        @book = Book.create( title: "Some book", genre: "some genre", year: 1234, plot: "Some plot", author_id: @author.id)
+      end
+
+      let(:user) { FactoryGirl.create(:user) }
+
+      describe "in the Book controller" do
+
+        describe "visiting the edit book page" do
+          before { visit edit_book_path(@book) }
+          it { should_not have_title('Edit info about book') }
+        end
+
+        describe "visiting the new book page" do
+          before { visit new_book_path(@book.author.id) }
+          it { should_not have_title('Create new book') }
+        end
+
+        describe "submitting to the update book action" do
+          before { patch book_path(@book) }
+          specify { expect(response).to redirect_to(sign_in_path) }
+        end
+
+        describe "submitting to the create book action" do
+          before { post '/books' }
+          specify { expect(response).to redirect_to(sign_in_path) }
+        end
+
+        describe "submitting to the destroy book action" do
+          before { delete book_path(@book) }
+          specify { expect(response).to redirect_to(sign_in_path) }
+        end
+      end
+
+      describe "in the Author controller" do
+        describe "visiting the edit author page" do
+          before { visit edit_author_path(@author) }
+          it { should_not have_title('Edit info about author') }
+        end
+
+        describe "visiting the new author page" do
+          before { visit new_author_path(@author) }
+          it { should_not have_title('Create new author') }
+        end
+
+        describe "submitting to the update author action" do
+          before { patch author_path(@author) }
+          specify { expect(response).to redirect_to(sign_in_path) }
+        end
+
+        describe "submitting to the create author action" do
+          before { post '/authors' }
+          specify { expect(response).to redirect_to(sign_in_path) }
+        end
+      end
+    end
+  end
 end

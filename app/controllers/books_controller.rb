@@ -1,7 +1,7 @@
 class BooksController < ApplicationController
 
     before_action :find_book, only: [:show, :edit, :update, :destroy]
-
+    before_action :signed_in_user, only: [:new, :create, :edit, :update, :destroy]
     def index
         @books = Book.all        
     end
@@ -50,5 +50,13 @@ class BooksController < ApplicationController
 
     def find_book
         @book = Book.find(params[:id])
+    end
+
+    # Before filters
+
+    def signed_in_user
+        unless logged_in?
+        redirect_to sign_in_url
+      end
     end
 end
