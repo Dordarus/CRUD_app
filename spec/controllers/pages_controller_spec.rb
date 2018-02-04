@@ -8,19 +8,4 @@ RSpec.describe PagesController, type: :controller do
       expect(response).to have_http_status(:success)
     end
   end
-
-  describe "GET #sign_in" do
-    it "returns http success" do
-      get :sign_in
-      expect(response).to have_http_status(:success)
-    end
-  end
-
-  describe "GET #login" do
-    it "returns http success" do
-      get :sign_in
-      expect(response).to have_http_status(:success)
-    end
-  end
-
 end

@@ -4,7 +4,12 @@ Rails.application.routes.draw do
 
   #start page routes
   get '/sign_up' => 'users#new', as: :sign_up
-  get '/sign_in' => 'pages#sign_in', as: :sign_in
+  get '/sign_in' => 'sessions#new', as: :sign_in
+
+  #session routes
+  post   '/sign_in' => 'sessions#create'
+  delete '/sign_out'=> 'sessions#destroy', as: :sign_out
+
 
   #authors routes
   get '/authors'=>'authors#index', as: :authors_index
@@ -21,4 +26,6 @@ Rails.application.routes.draw do
   get '/books/:id/edit'=>'books#edit', as: :edit_book
   patch '/books/:id' => 'books#update'
   delete '/books/:id' => 'books#destroy'
+
+
 end

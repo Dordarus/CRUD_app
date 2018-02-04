@@ -41,7 +41,12 @@ RSpec.describe "Pages", type: :request do
       end
 
       it "should create a user" do
-        expect{click_button submit}.to change(User, :count).by(1)
+        expect{click_button submit}.to change(User, :count).by(1)        
+      end
+
+      describe "should change content" do
+        before {click_button submit}
+        it { should have_content(user.name) }
       end
     end
   end
